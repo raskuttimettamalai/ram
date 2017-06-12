@@ -1,0 +1,216 @@
+<div class="container">
+	<div class="row" ng-show="mode=='create' || mode == 'edit'">
+		<div class="col-md-10 col-md-offset-1 col-sm-12 col-xs-12">
+			<h5 class="text-uppercase"><i class="fa fa-plus"></i> Create Project Leads</h5>
+			<hr class="gray-line">
+		</div>
+	</div>
+	<div class="row" ng-show="mode=='create' || mode == 'edit'">
+	<form name="createprojectleadform">
+			<div class="form-group">
+				<div class="col-md-8 col-md-offset-1 col-sm-12 col-xs-12 input-space">
+					<label>Name</label>
+					<input type="text" class="form-control" name="projectlead_name" ng-model="projectlead.name" required>
+				</div>
+				<div class="col-md-8 col-md-offset-1 col-sm-12 col-xs-12 input-space">
+					<label>Type</label>
+					<select class="form-control" name="projectlead_type" ng-model="projectlead.type" required>
+						<option value="state board">State board</option>
+						<option value="cbse">CBSE</option>
+						<option value="international">International</option>
+						<option value="institute">Institute</option>
+						<option value="other">other</option>
+					</select>
+				</div>
+				<div class="col-md-8 col-md-offset-1 col-sm-12 col-xs-12 input-space">
+					<label>Address Line 1</label>
+					<input type="text" class="form-control" name="projectlead_addressline1" 
+					ng-model="projectlead.addressline1" required>				
+				</div>
+				<div class="col-md-8 col-md-offset-1 col-sm-12 col-xs-12 input-space">
+					<label>Address Line 2</label>
+					<input type="text" class="form-control" name="projectlead_addressline2" 
+					ng-model="projectlead.addressline2">				
+				</div>
+				<div class="col-md-8 col-md-offset-1 col-sm-12 col-xs-12 input-space">
+					<label>City</label>
+					<input type="text" class="form-control" name="city" ng-model="projectlead.city" required>				
+				</div>
+				<div class="col-md-8 col-md-offset-1 col-sm-12 col-xs-12 input-space">
+					<label>State</label>
+					<input type="text" class="form-control" name="state" ng-model="projectlead.state" required>				
+				</div>
+				<div class="col-md-8 col-md-offset-1 col-sm-12 col-xs-12 input-space">
+					<label>Country</label>
+					<input type="text" class="form-control" name="country" ng-model="projectlead.country" required>				
+				</div>
+				<div class="col-md-8 col-md-offset-1 col-sm-12 col-xs-12 input-space">
+					<label>Email  address</label>
+					<input type="email" class="form-control" name="email" ng-model="projectlead.email" required>				
+				</div>
+				<div class="col-md-8 col-md-offset-1 col-sm-12 col-xs-12 input-space">
+					<label>Phone Number 1</label>
+					<input type="text" class="form-control" name="phone1" ng-model="projectlead.phone1" required>				
+				</div>
+				<div class="col-md-8 col-md-offset-1 col-sm-12 col-xs-12 input-space">
+					<label>Phone Number 2</label>
+					<input type="text" class="form-control" name="phone2" ng-model="projectlead.phone2">				
+				</div>
+				<div class="col-md-8 col-md-offset-1 col-sm-12 col-xs-12 input-space">
+					<label>Phone Number 3</label>
+					<input type="text" class="form-control" name="phone3" ng-model="projectlead.phone3">				
+				</div>
+				<div class="col-md-8 col-md-offset-1 col-sm-12 col-xs-12 input-space">
+					<label>Contact Person</label>
+					<input type="text" class="form-control" name="contact_person" 
+					ng-model="projectlead.contact_person" required>				
+				</div>
+				<div class="col-md-8 col-md-offset-1 col-sm-12 col-xs-12 input-space">
+					<label>Lead Status</label>
+					<select class="form-control" name="lead_status" ng-model="projectlead.lead_status" required>
+						<option value="new lead">New Lead</option>
+						<option value="s/w already exist">S/W Already Exist</option>
+						<option value="mail sent">Mail sent</option>
+						<option value="switched off">Switched off</option>
+						<option value="not interested">Not Interested</option>
+						<option value="call not answered">Call-Not answered</option>
+						<option value="number not exist">Number not Exist</option>
+						<option value="busy">Busy</option>
+						<option value="call in future">Call in Future</option>
+						<option value="ready for demo">Ready for Demo</option>
+						<option value="demo completed">Demo Completed</option>
+						<option value="quotation sent">Quotation Sent</option>
+						<option value="quotation accepted">Quotation Accepted</option>
+						<option value="waiting for access">Waiting for Access</option>
+						<option value="completed">Completed</option>
+					</select>
+				</div>
+				<div class="col-md-8 col-md-offset-1 col-sm-12 col-xs-12 input-space">
+					<label>Notes</label>
+					<textarea class="form-control" name="notes" ng-model="projectlead.notes" required></textarea>	
+				</div>
+				<div class="col-md-8 col-md-offset-1 col-sm-12 col-xs-12 input-space">
+					<label>Star Rating</label>
+					<ng-rate-it ng-model="projectlead.rating"></ng-rate-it>
+				</div>
+
+				<div class="col-md-8 col-md-offset-1 col-sm-12 col-xs-12 input-space text-right">
+					<input type="button" class="btn btn-primary" name="saveprojectlead" value="Save" 
+					ng-click="saveprojectlead(projectlead)" ng-disabled="createprojectleadform.$invalid">
+					<button class="btn btn-danger" ng-click="goparams('/projectleads/list',project_id)">Cancel</button>
+				</div>
+			</div>
+		</form>
+		</div>
+		<div class="row" ng-show="mode=='list'">
+			<div class="col-md-12 col-sm-12 col-xs-12">
+				<h5 class="text-uppercase"><i class="fa fa-file-text"></i> All Project Leads</h5>
+				<hr class="gray-line">
+			</div>
+			<div class="col-md-11 col-sm-12 col-xs-12  input-space">
+				<div class="row">
+					<div class="col-md-6 col-sm-6 col-xs-6">
+						<input class="form-control" type="text" name="searchbox" ng-model="filteroptions.searchtext" ng-enter="filtersearchtext(filteroptions.searchtext)" placeholder="search leads">
+					</div>
+					<div class="col-md-6 col-sm-5 col-xs-5 text-right">
+						<span class="dropdown">
+						<button class="btn btn-default dropdown-toggle text-capitalize" type="button" id="leadstatusdropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+						    <i class="fa fa-tasks"></i> {{filteroptions.lead_status}}
+						    <span class="caret"></span>
+						  </button>&nbsp;&nbsp;&nbsp;&nbsp;
+						<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="leadstatusdropdown">
+<li class="text-capitalize" ng-click="setfilterleadstatus('new lead')"><a href="javascript:;"><i class="fa fa-tasks"></i> New Lead</a></li>					
+
+		<li class="text-capitalize" ng-click="setfilterleadstatus('s/w already exist')"><a href="javascript:;"><i class="fa fa-tasks"></i> S/W Already Exist</a></li>
+							<li class="text-capitalize"  ng-click="setfilterleadstatus('mail sent')">
+							<a href="javascript:;"><i class="fa fa-tasks"></i> Mail sent</a></li>
+							<li class="text-capitalize"  ng-click="setfilterleadstatus('switched off')"><a href="javascript:;"><i class="fa fa-tasks"></i> Switched off</a></li>
+							<li class="text-capitalize" ng-click="setfilterleadstatus('not interested')"><a href="javascript:;"><i class="fa fa-tasks"></i> Not Interested</a></li>
+							<li class="text-capitalize"  ng-click="setfilterleadstatus('call not answered')"><a href="javascript:;"><i class="fa fa-tasks"></i> Call-Not answered</a></li>
+							<li class="text-capitalize" ng-click="setfilterleadstatus('number not exist')"><a href="javascript:;"><i class="fa fa-tasks"></i> Number not Exist</a></li>
+							<li class="text-capitalize" ng-click="setfilterleadstatus('busy')"><a href="javascript:;"><i class="fa fa-tasks"></i> Busy</a></li>
+							<li class="text-capitalize" ng-click="setfilterleadstatus('call in future')"><a href="javascript:;"><i class="fa fa-tasks"></i> Call in Future </a></li>
+							<li class="divider"></li>
+							<li class="text-capitalize" ng-click="setfilterleadstatus('ready for demo')"><a href="javascript:;"><i class="fa fa-tasks"></i> Ready for Demo </a></li>
+							<li class="text-capitalize" ng-click="setfilterleadstatus('demo completed')"><a href="javascript:;"><i class="fa fa-tasks"></i> Demo Completed </a></li>
+							<li class="text-capitalize" ng-click="setfilterleadstatus('quotation sent')"><a href="javascript:;"><i class="fa fa-tasks"></i> Quotation Sent </a></li>
+							<li class="text-capitalize" ng-click="setfilterleadstatus('quotation accepted')"><a href="javascript:;"><i class="fa fa-tasks"></i> Quotation Accepted </a></li>
+							<li class="text-capitalize" ng-click="setfilterleadstatus('waiting for access')"><a href="javascript:;"><i class="fa fa-tasks"></i> Waiting for Access </a></li>
+							<li class="text-capitalize" ng-click="setfilterleadstatus('completed')"><a href="javascript:;"><i class="fa fa-tasks"></i> Completed </a></li>
+							<li class="divider"></li>
+							<li class="text-capitalize" ng-click="setfilterleadstatus('all')"><a href="javascript:;"><i class="fa fa-tasks"></i> All </a></li>
+						</ul>
+						</span>
+						<button class="btn btn-info" ng-click="goparams('/projectleads/create',selectedproject._id)"><i class="fa fa-plus"></i> Create Lead</button> &nbsp;&nbsp;
+						<span class="dropdown">
+							<button class="btn btn-default dropdown-toggle text-capitalize" type="button" id="filterdatedropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+							    <i class="fa fa-calendar"></i> {{filteroptions.filterdate}}
+							    <span class="caret"></span>
+							  </button>
+							<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="filterdatedropdown">
+								<li class="text-capitalize" ng-click="setfilterdate('today')"><a href="javascript:;"><i class="fa fa-calendar"></i> Today</a></li>
+								<li class="text-capitalize" ng-click="setfilterdate('all')"><a href="javascript:;"><i class="fa fa-calendar"></i> All</a></li>
+							</ul>
+						</span>
+					</div>
+				</div>
+				
+			</div>
+
+			<div class="col-md-11 col-sm-12 col-xs-12" ng-show="projectleads.length>0">
+				<div class="row">
+					<div class="col-md-6 col-sm-6 col-xs-12">
+						<h2 class="lead">
+						{{projectleadspagination.totalresults}} Leads Found
+						</h2>
+					</div>
+					<div class="col-md-6 col-sm-6 col-xs-12 text-right">
+						<ul paginationcontrol resultsperpage="projectleadspagination.resultsperpage" totalresults="projectleadspagination.totalresults" currentpage="projectleadspagination.currentpage" afterpaginate="afterpaginate(page)"></ul>		
+					</div>
+				</div>
+				
+			</div>
+			<div class="col-md-11 col-sm-12 col-xs-12" ng-show="projectleads.length>0" style="overflow-x: auto;">
+				<table class="table table-bordered table-hover">
+					<thead>
+						<th>Name</th>
+						<th>Type</th>
+						<th>Contact Person</th>
+						<th>Phone 1</th>
+						<th>Email</th>
+						<th>City/State</th>
+						<th>Notes</th>
+					<!--	<th>Lead Status</th>-->
+						<th>Update Date</th>
+						<th>Update_By</th>
+						<th style="width:100px">Rating</th>
+						<th>Action</th>
+					</thead>
+					<tbody>
+						<tr ng-repeat="projectlead in projectleads | orderBy:'-_id'">
+							<td class="viewinfo" ng-click="viewprojectleaddetails(projectlead)" class="text-capitalize">{{projectlead.name}}</td>
+							<td>{{projectlead.type}}</td>
+							<td class="text-capitalize">{{projectlead.contact_person}}</td>
+							<td>{{projectlead.phone1}}</td>
+							<td>{{projectlead.email}}</td>
+							<td class="text-capitalize">{{projectlead.city}} / {{projectlead.state}}</td>
+							<td class="text-capitalize">{{projectlead.notes}}</td>
+							<!--<td class="text-capitalize">{{projectlead.lead_status}}</td>-->
+							<td class="text-capitalize">{{projectlead.updated_At | date:'medium'}}</td>
+							<td class="text-capitalize">{{projectlead.updated_by.username}}</td>
+
+							<td class="text-capitalize"><ng-rate-it ng-model="projectlead.rating"  read-only="true"></ng-rate-it></td>
+							<td>
+								<span class="pointer btn btn-warning" ng-click="openeditprojectlead(projectlead)" style="margin-bottom: 10px">Edit</span> &nbsp;
+								<span class="pointer btn btn-danger" ng-show="globalvalue.userid.role!='developer'" ng-click="deletealertpopup(projectlead)" style="margin-bottom: 10px">Delete</span>
+								<span class="pointer  btn btn-primary" ng-click="sentemail(projectlead)" style="margin-bottom: 10px">Send Email</span>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="col-md-10 col-md-offset-1 col-sm-12 col-xs-12 text-center" ng-show="projectleads.length==0">
+				<h5 class="gray-text">Note : No Project lead Found, to create a new project lead click create project lead on sidebar</h5>
+		</div>
+	</div>
+</div>		
